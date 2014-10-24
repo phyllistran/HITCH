@@ -16,15 +16,16 @@
     border-width: 3px;
     padding: 10px;
 }
-
 .weatherQs {
-    text-align: center;
+    margin:20px;
+    float: left;
     font-size: 20px;
 }
 input[type=checkbox] {
     visibility: hidden;
 }
 .slideTwo {
+    float: left;
     width: 80px;
     height: 30px;
     background: #333;
@@ -100,4 +101,7 @@ input[type=checkbox] {
 }
 .slideTwo input[type=checkbox]:checked + label:after {
     background: #00bf00;
+}
+.floatRight {
+    float: right;
 }
