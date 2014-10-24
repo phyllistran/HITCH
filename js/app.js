@@ -12,7 +12,25 @@ function app(){
     ).then(function(){
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
-        // start app?
+
+var apiID = "1156f99c";
+var apiKEY = "7c651b3d3555de2b8dcb55eeaaaa4c97";
+var searchParams = "Ahi-poke-352868";
+var url = "http://api.yummly.com/v1/api/recipe/" + searchParams + "?_app_id=" + apiID + "&_app_key=" + apiKEY;
+$.get(url).then(function(data) {
+    drawProfile(data);
+})
+
+// function drawProfile(data) {
+//     document.body.innerHTML = [
+//         '<h1>',
+//         data.ingredientLines,
+//         data.nutri
+//         '</h1>'
+//     ].join('')
+// }
+
+
     })
 
 }

@@ -1,0 +1,21 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 2em auto;
+	position: relative;
+}
+
+.column {
+	position: relative;
+	width: 320px;
+	height: 100%;
+	float: left;
+	margin: 30px;
+	border-style: solid;
+	border-width: 3px;
+	padding: 10px;
+	
+}
