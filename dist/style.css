@@ -17,7 +17,7 @@
     padding: 10px;
 }
 .weatherQs {
-    margin:20px;
+    margin: 20px;
     float: left;
     font-size: 20px;
 }
@@ -25,13 +25,14 @@ input[type=checkbox] {
     visibility: hidden;
 }
 .slideTwo {
-    float: left;
+    left: 50%;
+    margin-left: -40px;
     width: 80px;
     height: 30px;
     background: #333;
     margin: 20px auto;
     border-radius: 50px;
-    position: relative;
+    position: absolute;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
 .slideTwo:after {
@@ -82,4 +83,7 @@ input[type=checkbox] {
 }
 .floatRight {
     float: right;
+}
+.weatherContainer {
+    width: 100%;
 }
