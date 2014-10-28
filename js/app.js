@@ -74,9 +74,6 @@ YummlyClient.prototype.setupRouting = function() {
     Path.map("#/yummly").to(function() {
         self.drawListings(self.listingHtml, self.latestData);
     });
-    Path.map("#/message/:anymessage").to(function() {
-        alert(this.params.anymessage);
-    });
     Path.map("#/yummly/:id").to(function() {
         $.when(
             self.loadTemplate("single-yummly"),
