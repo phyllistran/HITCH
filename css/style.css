@@ -138,3 +138,33 @@ input.btn-style {
     width: 100%;
     position: relative;
 }
+.grid {
+    display: block;
+    font-size: 0;
+    text-align: justify;
+    margin: 0 auto;
+}
+.grid:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+.grid > * {
+    display: inline-block;
+    width: 100%;
+    font-size: medium;
+    vertical-align: top;
+    text-align: left;
+    border: 1px solid gray;
+    font-family: Didot, “Didot LT STD”, “Hoefler Text”, Garamond, “Times New Roman”, serif;
+    background-color: white;
+    color: black;
+}
+@media (min-width: 800px) {
+    .grid-3-800 > * {
+        width: 30%;
+    }
+}
+.ingredientLines{
+    content:"";
+}
