@@ -52,27 +52,37 @@ YummlyClient.prototype.drawListings = function(templateString, data) {
         return _.template(templateString, yummly);
     }).join('');
     grid.innerHTML = bigHtmlString;
+    var weather = document.querySelector("#weather");
+    weather.innerHTML = "";
 };
 YummlyClient.prototype.drawSingleListing = function(template, data) {
     var listing = data;
     var grid = document.querySelector("#yummly");
     var bigHtmlString = _.template(template, listing);
     grid.innerHTML = bigHtmlString;
+    var music = document.querySelector("#music");
+    music.innerHTML = "";
 };
-YummlyClient.prototype.drawHomePage = function(template, data) {
-    var home = document.querySelector("#home");
-    var something = data;
-    var htmlString = _.template(template, something);
-    home.innerHTML = htmlString;
-};
-YummlyClient.prototype.drawWeatherPage = function(template, data) {
+YummlyClient.prototype.drawHomePage = function(template) {
     var weather = document.querySelector("#weather");
-    var something = data;
-    var htmlString = _.template(template, something);
-    weather.innerHTML = htmlString;
+    weather.innerHTML = "";
+    var home = document.querySelector("#home");
+    home.innerHTML = template;
+};
+YummlyClient.prototype.drawWeatherPage = function(template) {
+    var weather = document.querySelector("#weather");
+    weather.innerHTML = template;
     var home = document.querySelector("#home");
     home.innerHTML = "";
+    var food = document.querySelector("#yummly");
+    food.innerHTML = "";
 
+};
+YummlyClient.prototype.drawMusicPage = function(template) {
+    var music = document.querySelector("#music");
+    music.innerHTML = template;
+    var food = document.querySelector("#yummly");
+    food.innerHTML = "";
 };
 YummlyClient.prototype.setupRouting = function() {
     var self = this;
@@ -81,7 +91,7 @@ YummlyClient.prototype.setupRouting = function() {
         $.when(
             self.loadTemplate("home")
         ).then(function() {
-            self.drawHomePage(arguments[0], arguments[1]);
+            self.drawHomePage(arguments[0]);
         });
     });
 
@@ -107,7 +117,14 @@ YummlyClient.prototype.setupRouting = function() {
         $.when(
             self.loadTemplate("weather")
         ).then(function() {
-            self.drawWeatherPage(arguments[0], arguments[1]);
+            self.drawWeatherPage(arguments[0]);
+        });
+    });
+    Path.map("#/music").to(function() {
+        $.when(
+            self.loadTemplate("music")
+        ).then(function() {
+            self.drawMusicPage(arguments[0]);
         });
     });
     Path.root("#/");
