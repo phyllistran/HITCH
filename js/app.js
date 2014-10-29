@@ -59,12 +59,30 @@ YummlyClient.prototype.drawSingleListing = function(template, data) {
     var bigHtmlString = _.template(template, listing);
     grid.innerHTML = bigHtmlString;
 };
+YummlyClient.prototype.drawHomePage = function(template, data) {
+    var home = document.querySelector("#home");
+    var something = data;
+    var htmlString = _.template(template, something);
+    home.innerHTML = htmlString;
+};
+YummlyClient.prototype.drawWeatherPage = function(template, data) {
+    var weather = document.querySelector("#weather");
+    var something = data;
+    var htmlString = _.template(template, something);
+    weather.innerHTML = htmlString;
+    var home = document.querySelector("#home");
+    home.innerHTML = "";
+
+};
 YummlyClient.prototype.setupRouting = function() {
     var self = this;
 
     Path.map("#/").to(function() {
-        self.loadTemplate("home");
-
+        $.when(
+            self.loadTemplate("home")
+        ).then(function() {
+            self.drawHomePage(arguments[0], arguments[1]);
+        });
     });
 
     Path.map("#/yummly").to(function() {
@@ -86,12 +104,12 @@ YummlyClient.prototype.setupRouting = function() {
         });
     });
     Path.map("#/weather").to(function() {
-        self.loadTemplate("weather");
+        $.when(
+            self.loadTemplate("weather")
+        ).then(function() {
+            self.drawWeatherPage(arguments[0], arguments[1]);
+        });
     });
     Path.root("#/");
     Path.listen();
 };
-// where do i put this?
-// 
-// var array = document.getElementById("ingredientLines").innerHTML.split(",").join("<br>");
-// document.getElementById("ingredientLines").innerHTML = array;
