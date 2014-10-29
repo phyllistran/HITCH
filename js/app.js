@@ -63,6 +63,11 @@ YummlyClient.prototype.setupRouting = function() {
     var self = this;
 
     Path.map("#/").to(function() {
+        self.loadTemplate("home");
+
+    });
+
+    Path.map("#/yummly").to(function() {
         $.when(
             self.loadTemplate("yummly"),
             self.pullAllActiveListings()
@@ -70,25 +75,23 @@ YummlyClient.prototype.setupRouting = function() {
             self.drawListings(arguments[0], arguments[1]);
         });
     });
-
-    Path.map("#/yummly").to(function() {
-        self.drawListings(self.listingHtml, self.latestData);
-    });
     Path.map("#/yummly/:id").to(function() {
         $.when(
             self.loadTemplate("single-yummly"),
             self.pullSingleListing(this.params.id)
         ).then(function() {
             self.drawSingleListing(arguments[0], arguments[1]);
+            var array = document.getElementById("ingredientLines").innerHTML.split(",").join("<br>");
+            document.getElementById("ingredientLines").innerHTML = array;
         });
     });
-    //Path.map("#/weather").to(function(){
-    //    self.drawWeather(this.)
-    //})
+    Path.map("#/weather").to(function() {
+        self.loadTemplate("weather");
+    });
     Path.root("#/");
     Path.listen();
 };
 // where do i put this?
 // 
-// var array = document.getElementById("ingredientLines").split(",").join("<br>");
+// var array = document.getElementById("ingredientLines").innerHTML.split(",").join("<br>");
 // document.getElementById("ingredientLines").innerHTML = array;
