@@ -1,12 +1,17 @@
 *, *:before, *:after {
     box-sizing: border-box;
 }
+* {
+    -webkit-transition: 1s ease;
+            transition: 1s ease;
+}
 .container {
     max-width: 1024px;
     margin: 2em auto;
     position: relative;
 }
 .column {
+    box-shadow: -6px 8px 33px white;
     position: relative;
     width: 320px;
     height: 100%;
@@ -90,10 +95,72 @@ input.btn-style.floatRight {
     position: absolute;
 }
 .centered {
-    bottom:50px;
+    bottom: 50px;
     position: absolute;
     left: 41%;
 }
-.weatherQs.centered{
-    bottom:100px;
+.weatherQs.centered {
+    bottom: 100px;
+}
+.musicBackground {
+    background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-8.jpg)
+}
+.musicPage {
+    color: white;
+}
+u {
+    color: white;
+}
+.musicPage h4 {
+    color: white;
+}
+.warmFoodPage {
+    background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-9.jpg);
+}
+.coldFoodPage {
+    background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-12.jpg);
+}
+.weatherPage {
+    background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-19.jpg);
+}
+.yummlyPage {
+    background-color: lightgray;
+}
+.yummlyPage a {
+    box-shadow: -5px 5px 5px gray;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2%;
+}
+.yummlyPage img {
+    border: 1px solid black;
+    width: 100%;
+}
+.singleYummly img {
+    width: 100%;
+}
+div.singleYummly {
+    left: 35%;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 2%;
+    box-shadow: -5px 5px 5px green;
+}
+.singleYummly {
+    background-color: lightblue;
+}
+.singleYummly a:visited {
+    color: red;
+}
+.coolColor {
+    background-color: #27CFC3;
+}
+.clickMe {
+    left: 35%;
+    top: 1%;
+    position: absolute;
+}
+.invisibleDiv {
+    height: 30px;
+    width: 100%;
 }

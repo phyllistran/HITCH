@@ -56,6 +56,8 @@ YummlyClient.prototype.drawListings = function(templateString, data) {
     weather.innerHTML = "";
     var music = document.querySelector("#music");
     music.innerHTML = "";
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "yummlyPage";
 };
 YummlyClient.prototype.drawSingleListing = function(template, data) {
     var listing = data;
@@ -64,13 +66,16 @@ YummlyClient.prototype.drawSingleListing = function(template, data) {
     grid.innerHTML = bigHtmlString;
     var music = document.querySelector("#music");
     music.innerHTML = "";
-
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "coolColor";
 };
 YummlyClient.prototype.drawHomePage = function(template) {
     var weather = document.querySelector("#weather");
     weather.innerHTML = "";
     var home = document.querySelector("#home");
     home.innerHTML = template;
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "";
 };
 YummlyClient.prototype.drawWeatherPage = function(template) {
     var weather = document.querySelector("#weather");
@@ -85,6 +90,8 @@ YummlyClient.prototype.drawWeatherPage = function(template) {
     coldFood.innerHTML = "";
     var music = document.querySelector("#music");
     music.innerHTML = "";
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "weatherPage";
 };
 YummlyClient.prototype.drawMusicPage = function(template) {
     var music = document.querySelector("#music");
@@ -95,6 +102,8 @@ YummlyClient.prototype.drawMusicPage = function(template) {
     warmFood.innerHTML = "";
     var coldFood = document.querySelector("#coldFood");
     coldFood.innerHTML = "";
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "musicBackground musicPage";
 
 };
 YummlyClient.prototype.drawColdFoodPage = function(template) {
@@ -104,6 +113,8 @@ YummlyClient.prototype.drawColdFoodPage = function(template) {
     weather.innerHTML = "";
     var music = document.querySelector("#music");
     music.innerHTML = "";
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "coldFoodPage";
 };
 YummlyClient.prototype.drawWarmFoodPage = function(template) {
     var coldFood = document.querySelector("#coldFood");
@@ -112,6 +123,8 @@ YummlyClient.prototype.drawWarmFoodPage = function(template) {
     weather.innerHTML = "";
     var music = document.querySelector("#music");
     music.innerHTML = "";
+    var backgroundImage = document.querySelector("body");
+    backgroundImage.className = "warmFoodPage";
 };
 YummlyClient.prototype.setupRouting = function() {
     var self = this;
@@ -123,13 +136,18 @@ YummlyClient.prototype.setupRouting = function() {
             self.drawHomePage(arguments[0]);
         });
     });
-
     Path.map("#/yummly").to(function() {
         $.when(
             self.loadTemplate("yummly"),
             self.pullAllActiveListings()
         ).then(function() {
             self.drawListings(arguments[0], arguments[1]);
+            var a = document.querySelectorAll("span");
+            for (var i = 0, array = ""; i < a.length; i++) {
+                array = a[i].innerHTML.split(",").join("<br>");
+                a[i].innerHTML = array;
+            }
+            document.getElementById("clickMe").innerHTML = "Click a food block to see more info";
         });
     });
     Path.map("#/yummly/:id").to(function() {
