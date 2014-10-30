@@ -68,6 +68,7 @@ YummlyClient.prototype.drawSingleListing = function(template, data) {
     music.innerHTML = "";
     var backgroundImage = document.querySelector("body");
     backgroundImage.className = "coolColor";
+    document.getElementById("clickMe").innerHTML = "";
 };
 YummlyClient.prototype.drawHomePage = function(template) {
     var weather = document.querySelector("#weather");
@@ -92,6 +93,7 @@ YummlyClient.prototype.drawWeatherPage = function(template) {
     music.innerHTML = "";
     var backgroundImage = document.querySelector("body");
     backgroundImage.className = "weatherPage";
+    document.getElementById("clickMe").innerHTML = "";
 };
 YummlyClient.prototype.drawMusicPage = function(template) {
     var music = document.querySelector("#music");
@@ -104,6 +106,7 @@ YummlyClient.prototype.drawMusicPage = function(template) {
     coldFood.innerHTML = "";
     var backgroundImage = document.querySelector("body");
     backgroundImage.className = "musicBackground musicPage";
+    document.getElementById("clickMe").innerHTML = "";
 
 };
 YummlyClient.prototype.drawColdFoodPage = function(template) {
