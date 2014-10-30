@@ -54,6 +54,8 @@ YummlyClient.prototype.drawListings = function(templateString, data) {
     grid.innerHTML = bigHtmlString;
     var weather = document.querySelector("#weather");
     weather.innerHTML = "";
+    var music = document.querySelector("#music");
+    music.innerHTML = "";
 };
 YummlyClient.prototype.drawSingleListing = function(template, data) {
     var listing = data;
@@ -62,6 +64,7 @@ YummlyClient.prototype.drawSingleListing = function(template, data) {
     grid.innerHTML = bigHtmlString;
     var music = document.querySelector("#music");
     music.innerHTML = "";
+
 };
 YummlyClient.prototype.drawHomePage = function(template) {
     var weather = document.querySelector("#weather");
@@ -76,13 +79,39 @@ YummlyClient.prototype.drawWeatherPage = function(template) {
     home.innerHTML = "";
     var food = document.querySelector("#yummly");
     food.innerHTML = "";
-
+    var warmFood = document.querySelector("#warmFood");
+    warmFood.innerHTML = "";
+    var coldFood = document.querySelector("#coldFood");
+    coldFood.innerHTML = "";
+    var music = document.querySelector("#music");
+    music.innerHTML = "";
 };
 YummlyClient.prototype.drawMusicPage = function(template) {
     var music = document.querySelector("#music");
     music.innerHTML = template;
     var food = document.querySelector("#yummly");
     food.innerHTML = "";
+    var warmFood = document.querySelector("#warmFood");
+    warmFood.innerHTML = "";
+    var coldFood = document.querySelector("#coldFood");
+    coldFood.innerHTML = "";
+
+};
+YummlyClient.prototype.drawColdFoodPage = function(template) {
+    var warmFood = document.querySelector("#warmFood");
+    warmFood.innerHTML = template;
+    var weather = document.querySelector("#weather");
+    weather.innerHTML = "";
+    var music = document.querySelector("#music");
+    music.innerHTML = "";
+};
+YummlyClient.prototype.drawWarmFoodPage = function(template) {
+    var coldFood = document.querySelector("#coldFood");
+    coldFood.innerHTML = template;
+    var weather = document.querySelector("#weather");
+    weather.innerHTML = "";
+    var music = document.querySelector("#music");
+    music.innerHTML = "";
 };
 YummlyClient.prototype.setupRouting = function() {
     var self = this;
@@ -125,6 +154,20 @@ YummlyClient.prototype.setupRouting = function() {
             self.loadTemplate("music")
         ).then(function() {
             self.drawMusicPage(arguments[0]);
+        });
+    });
+    Path.map("#/coldFood").to(function() {
+        $.when(
+            self.loadTemplate("coldFood")
+        ).then(function() {
+            self.drawColdFoodPage(arguments[0]);
+        });
+    });
+    Path.map("#/warmFood").to(function() {
+        $.when(
+            self.loadTemplate("warmFood")
+        ).then(function() {
+            self.drawWarmFoodPage(arguments[0]);
         });
     });
     Path.root("#/");
