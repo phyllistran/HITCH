@@ -1,0 +1,37 @@
+<div class="yumFormCont">
+    <form class="elegant-aero">
+        <label>Have Allergies?</label>
+        <select id="allergies">
+            <option value="">None</option>
+            <option value="396^Dairy-Free">Dairy</option>
+            <option value="393^Gluten-Free">Gluten</option>
+            <option value="394^Peanut-Free">Peanut</option>
+            <option value="398^Seafood-Free">Seafood</option>
+            <option value="392^Wheat-Free">Wheat</option>
+        </select>
+        <label>On a Diet?</label>
+        <select id="diet">
+            <option value="">None</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegaterian</option>
+        </select>
+        <label>Search Key Words</label>
+        <input id="search" type="text" name="search" placeholder="Search">
+        <label>max meal prep length</label>
+        <select id="time">
+            <option value="">None</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours</option>
+        </select>
+        <label>Number of Results</label>
+        <input id="results" type="number" min="6" max="100" placeholder="min:6 max:100">
+        <label>Include These Ingredients---Seperate with spaces</label>
+        <input id="ingredients" type="text" placeholder="Put Ingredients Here :)">
+    </form>
+    <a class="elegant-aero centered" id="button" href="#/yummly">
+        <button class="button" onclick="DateClient.prototype.search()">Search for Recipe!</button>
+    </a>
+</div>
